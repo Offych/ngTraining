@@ -1,0 +1,8 @@
+<h3>Bindings workaround</h3>
+<p>Event Binding</p>
+<input type="text" (input)='onInput($event)'/>
+<span>{{inputtedText}}</span>
+<hr>
+<p>Two-way Binding</p>
+<input type="text" [(ngModel)]='twoWayInput'>
+<span>{{twoWayInput}}</span>
