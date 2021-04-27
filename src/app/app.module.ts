@@ -9,7 +9,7 @@ import { SkillsModule } from './skills/skills.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -17,7 +17,6 @@ import { SkillsModule } from './skills/skills.module';
     UsersModule,
     InfoModule,
     SkillsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
