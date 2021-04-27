@@ -1,5 +1,5 @@
-<div class="container">
-    <div class="card" *ngFor="let user of users" >
+<div class="container" *ngIf='showCards'>
+    <div class="card" *ngFor="let user of users" [hidden]="hidden" >
             <h3>Name: {{user.name}}</h3>
             <h4>Age: {{user.age}}</h4>
             <p>Gender: {{user.gender ? "male" : "female"}}</p>
@@ -10,4 +10,5 @@
 <!-- Todo: insert logic for hiding components with gender = true
     using ngIf
 -->
-<button>Hide Boys</button>
+<button (click)="toggleShow()">{{showCards ? 'Hide' : 'Show'}} Cards via *ngIf</button>
+<button (click)="toggleHidden()">{{hidden ? 'Show' : 'Hide'}} Cards via hidden</button>

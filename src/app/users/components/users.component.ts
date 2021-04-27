@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 export interface IUser {
     name: string;
@@ -11,8 +11,11 @@ export interface IUser {
     styleUrls: ['./users.component.scss']
 })
 export class UsersComponent {
-
-    users: IUser[] = [{
+  
+  showCards = true;
+  hidden = false;
+  
+  users: IUser[] = [{
         name: 'Thor',
         age: 1500,
         gender: true
@@ -33,4 +36,10 @@ export class UsersComponent {
         gender: false
     },
   ]
+    toggleShow() {
+      this.showCards = !this.showCards;
+    } 
+    toggleHidden() {
+      this.hidden = !this.hidden;
+    }
 }
