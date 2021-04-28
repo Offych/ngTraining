@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IUsers } from 'src/app/users.interface';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -8,8 +8,8 @@ import { UsersService } from 'src/app/services/users.service';
     styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-
-  public users: IUsers[] = [];
+  pageTitle: string = "Welcome to the Users Component!";
+  public heroes: IUsers[] = [];
   
   showCards = true;
   hidden = false;
@@ -22,12 +22,9 @@ export class UsersComponent implements OnInit {
     toggleHidden() {
       this.hidden = !this.hidden;
     }
-    onI(i) {
-      console.log(i)
-    }
     
     ngOnInit(): void {
-      this.users = this.usersService.getUsers();
-      console.log(this.users)
+      this.heroes = this.usersService.getUsers();
+      //console.log(this.users)
     }
 }

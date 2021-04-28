@@ -14,21 +14,21 @@ export class UsersService {
         name: 'Thor',
         age: 1500,
         gender: true
-    },
-    {
+      },
+      {
         name: 'Tony Stark',
         age: 44,
         gender: true
-    },
-    {
+      },
+      {
         name: 'Natasha Romanova',
         age: 30,
         gender: false
-    },
-    {
+      },
+      {
         name: 'Vanda Witch',
         age: 25,
         gender: false
-    }]
+      }]
   }
 }
