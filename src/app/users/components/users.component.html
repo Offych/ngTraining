@@ -1,5 +1,5 @@
 <div class="container" *ngIf='showCards'>
-    <div class="card" *ngFor="let user of users" [hidden]="hidden" >
+    <div class="card" *ngFor="let user of users;" [hidden]="hidden" >
             <h3>Name: {{user.name}}</h3>
             <h4>Age: {{user.age}}</h4>
             <p>Gender: {{user.gender ? "male" : "female"}}</p>
