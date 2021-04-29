@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, ViewChildren } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef,ViewEncapsulation } from '@angular/core';
 import { IUsers } from 'src/app/users.interface';
 
 @Component({
   selector: 'card-component',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CardComponent implements OnInit {
   @Input() heroData: IUsers;
