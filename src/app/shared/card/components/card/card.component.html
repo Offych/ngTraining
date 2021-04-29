@@ -1,0 +1,6 @@
+<h2>Hero info</h2>
+<h3>Name: {{heroData.name}}</h3>
+<h4>Age: {{heroData.age}}</h4>
+<p>Gender: {{heroData.gender ? "male" : "female"}}</p>
+<button (click)='heroData.gender = true'>Change Gender</button>
+<button (click)='changeGender()'>Change Gender Via Output</button>
