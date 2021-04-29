@@ -12,31 +12,24 @@ export class UsersComponent implements OnInit {
   public heroes: IUsers[] = [];
   showMales: boolean = true;
   
-  @ViewChild(CardComponent) cart: CardComponent;
-  @ViewChild('cardComp') card: ElementRef;
-  @ViewChildren('cardComp') allCards: QueryList<ElementRef>;
+  @ViewChildren(CardComponent) cards: CardComponent[];
+  
+/*   @ViewChild('cardComp') card: ElementRef;
+  @ViewChildren('cardComp') allCards: QueryList<ElementRef>; */
 
   constructor(private usersService: UsersService) {}
 
     ngOnInit(): void {
-      this.heroes = this.usersService.getUsers();
-      
-    }
-    ngAfterViewInit() {
-      /* setTimeout(() =>{
-        console.log(this.card)
-        console.log(this.allCards)
-      }, 0) */
+        this.heroes = this.usersService.getUsers();
     }
 
     hideMales(): void {
-      this.showMales = !this.showMales;
+        this.showMales = !this.showMales;
     }
-    onChanged() {
-      //console.log('You did this')
-    }
-    handler() {
+    
+    onChanged() { }
 
+    heroesActivationHandler() {
+        this.cards.forEach(hero => hero.activateThisHero())
     }
-
 }

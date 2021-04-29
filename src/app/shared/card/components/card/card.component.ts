@@ -8,32 +8,37 @@ import { IUsers } from 'src/app/users.interface';
   encapsulation: ViewEncapsulation.None
 })
 export class CardComponent implements OnInit {
-  @Input() heroData: IUsers;
-  @Output() onChangedGender = new EventEmitter<boolean>();
+    @Input() heroData: IUsers;
+    @Output() onChangedGender = new EventEmitter<boolean>();
   
-  @ViewChild('checkBox', {static: false}) checkBoxRef: ElementRef
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-  changeGender() {
-    this.heroData.gender = true;
-    this.onChangedGender.emit();
-  }
+/*     @ViewChild('checkBox', {static: false}) checkBoxRef: ElementRef */
   
-  checkAge() {
-   if(this.heroData.age < 18) {
-      return true;
-   }
-   return false;
- }
- onCheckboxEvent(e) {
-   //console.log(e)
- }
- focusCheckboxes() {
-  //console.log(this.checkBoxRef.nativeElement.checked)
+    heroIsActivated: boolean;
 
- }
+    constructor() { }
+
+    ngOnInit(): void {
+    }
+
+    changeGender() {
+        this.heroData.gender = true;
+        this.onChangedGender.emit();
+    }
+  
+    checkAge() {
+        if(this.heroData.age < 18) {
+            return true;
+        }
+        return false;
+    }
+    
+/*     focusCheckboxes() {
+        console.log(this.checkBoxRef.nativeElement.checked)
+    } */
+    
+    activateThisHero(): void {
+        if(this.heroData.age > 18) {
+            this.heroIsActivated = !this.heroIsActivated;
+        }
+    }
 }
