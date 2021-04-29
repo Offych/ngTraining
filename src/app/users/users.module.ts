@@ -2,17 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsersComponent } from './components/users.component';
 import { FormsModule } from '@angular/forms';
-import { CardComponent } from './components/card/card.component';
-
+import { CardModule } from '../shared/card.module';
 
 @NgModule({
   declarations: [
-    UsersComponent,
-    CardComponent
+    UsersComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    CardModule
   ],
   exports: [
     UsersComponent

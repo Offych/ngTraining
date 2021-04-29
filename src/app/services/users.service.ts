@@ -29,6 +29,17 @@ export class UsersService {
         name: 'Vanda Witch',
         age: 25,
         gender: false
-      }]
+      },
+      {
+        name: 'Peter Parker',
+        age: 17,
+        gender: true
+      },
+      {
+        name: 'SuperGirl',
+        age: 12,
+        gender: false
+      }
+    ]
   }
 }

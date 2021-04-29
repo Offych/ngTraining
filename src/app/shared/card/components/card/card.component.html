@@ -2,5 +2,9 @@
 <h3>Name: {{heroData.name}}</h3>
 <h4>Age: {{heroData.age}}</h4>
 <p>Gender: {{heroData.gender ? "male" : "female"}}</p>
+<p>
+    <input type="checkbox" [disabled]='checkAge()' (change)="onCheckboxEvent($event)" #checkBox> Activate this Hero
+</p>
 <button (click)='heroData.gender = true'>Change Gender</button>
 <button (click)='changeGender()'>Change Gender Via Output</button>
+<button (click)='focusCheckboxes()'>Focus checkboxes</button>
