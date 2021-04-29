@@ -8,23 +8,21 @@ import { UsersService } from 'src/app/services/users.service';
     styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  pageTitle: string = "Welcome to the Users Component!";
   public heroes: IUsers[] = [];
   
-  showCards = true;
-  hidden = false;
-  
+  showMales: boolean = true;
+
   constructor(private usersService: UsersService) {}
 
-    toggleShow() {
-      this.showCards = !this.showCards;
-    } 
-    toggleHidden() {
-      this.hidden = !this.hidden;
-    }
-    
     ngOnInit(): void {
       this.heroes = this.usersService.getUsers();
-      //console.log(this.users)
     }
+
+    hideMales(): void {
+      this.showMales = !this.showMales;
+    }
+    onChanged() {
+      console.log('You did this')
+    }
+
 }

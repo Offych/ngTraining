@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { IUsers } from 'src/app/users.interface';
 
 @Component({
@@ -8,11 +8,16 @@ import { IUsers } from 'src/app/users.interface';
 })
 export class CardComponent implements OnInit {
   @Input() heroData: IUsers;
-  
+  @Output() onChangedGender = new EventEmitter<boolean>();
+
   constructor() { }
 
   ngOnInit(): void {
-    //console.log(this.heroData)
+  }
+  
+  changeGender() {
+    this.heroData.gender = true;
+    this.onChangedGender.emit();
   }
 
 }
