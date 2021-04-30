@@ -3,10 +3,14 @@ import { CommonModule } from '@angular/common';
 import { UsersComponent } from './components/users.component';
 import { FormsModule } from '@angular/forms';
 import { CardModule } from '../shared/card.module';
+import { AddUserComponent } from './components/add-user/add-user.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
 
 @NgModule({
   declarations: [
-    UsersComponent
+    UsersComponent,
+    AddUserComponent,
+    UsersListComponent
   ],
   imports: [
     CommonModule,
@@ -14,7 +18,8 @@ import { CardModule } from '../shared/card.module';
     CardModule
   ],
   exports: [
-    UsersComponent
+    UsersComponent,
+    AddUserComponent
   ]
 })
 export class UsersModule { }

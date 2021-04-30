@@ -8,19 +8,23 @@ import { UsersModule } from './users/users.module';
 import { BindingsComponent } from './bindings/bindings.component';
 import { CardModule } from './shared/card.module';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
+import { HeaderModule } from './header/header.module';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BindingsComponent,
-    LifecycleComponent
+    LifecycleComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     UsersModule,
     FormsModule,
-    CardModule
+    CardModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
