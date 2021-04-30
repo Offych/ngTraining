@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ViewChildren, ElementRef, QueryList, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { IUsers } from 'src/app/users.interface';
 import { UsersService } from 'src/app/services/users.service';
 import { CardComponent } from 'src/app/shared/card/components/card/card.component';
@@ -8,7 +8,7 @@ import { CardComponent } from 'src/app/shared/card/components/card/card.componen
     templateUrl: './users.component.html',
     styleUrls: ['./users.component.scss']
 })
-export class UsersComponent implements OnInit, AfterViewInit {
+export class UsersComponent implements OnInit {
     ngAfterViewInit(): void {
         throw new Error("Method not implemented.");
     }
