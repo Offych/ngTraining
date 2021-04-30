@@ -9,9 +9,7 @@ import { CardComponent } from 'src/app/shared/card/components/card/card.componen
     styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-    ngAfterViewInit(): void {
-        throw new Error("Method not implemented.");
-    }
+
   public heroes: IUsers[] = [];
   showMales: boolean = true;
   
