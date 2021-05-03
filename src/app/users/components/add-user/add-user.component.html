@@ -1,16 +1,52 @@
-<form [formGroup]='addUserForm'>
-    <label for="">First Name:</label>
-    <input type="text"  class="form-control" formControlName="firstName" required />
-    <label for="">Last Name:</label>
-    <input type="text"  class="form-control" formControlName="lastName" required />
-    <label for="">Age:</label>
-    <input type="number"  class="form-control" formControlName="age" required />
-    <label for="">Company:</label>
-    <input type="text"  class="form-control" formControlName="company" required />
-    <label for="">email:</label>
-    <input type="email"  class="form-control" formControlName="email" required />
-    <label for="">Department:</label>
-    <input type="text"  class="form-control" formControlName="department" required />
-</form>
+<form [formGroup]='addUserForm' (ngSubmit)="onSubmit()" #form>
+    <div class="form_element">
+        <label for="">First Name:</label>
+    <input type="text"  class="form-control" formControlName="firstName"/>
+    <span class="error" *ngIf="checkFormControlField('firstName')">Name is required</span>
+    </div>
+    <div class="form_element">
+            <label for="">Last Name:</label>
+            <input type="text"  class="form-control" formControlName="lastName" />
+            <span  class="error" *ngIf="checkFormControlField('lastName')">Please enter the last name, while is required</span>
+    </div>
+    <div class="form_element">
+            <label for="">Age:</label>
+            <input type="number"  class="form-control" formControlName="age" />
+            <span class="error" *ngIf="checkFormControlField('age')">Age should be between 15 and 100</span>
+    </div>
+    <div class="form_element">
+            <label for="">Company:</label>
+            <input type="text"  class="form-control" formControlName="company" />
+            <span class="error" *ngIf="checkFormControlField('company')">Company name should be no more than 35 symbols</span>
+    </div>
+    <div class="form_element">
+            <label for="">Email:</label>
+    <input type="email"  class="form-control" formControlName="email" />
+    <span class="error" *ngIf="checkFormControlField('email')">Email is required</span>
+    </div>
+    <div class="form_element">
+            <label for="">Department:</label>
+            <input type="text"  class="form-control" formControlName="department" />
+            <span class="error" *ngIf="checkFormControlField('department')">Name of Department is required</span>
+    </div>
+    <div class="form_element">
+            <label for="">Gender:</label>
+            <input type="radio"  class="form-control" formControlName="gender" value="Male" />Male: 
+            <input type="radio"  class="form-control" formControlName="gender" value="Female" />Female:
+            <span class="error" *ngIf="checkFormControlField('gender')">Please specify a gender</span> 
+    </div>
+    <div class="form_element">
+            <label for="">Photo:</label>
+            <input type="file"  class="form-control" formControlName="photo" />
+    </div>
+    <button mat-button type='submit' [disabled]="!addUserForm.valid">Submit</button>
 
-<button mat-button (click)='onSubmit()'>Submit</button>
+</form>
+<button (click)='populateData()'>Populate Data</button>
+
+
+<div>Form Dirty: {{addUserForm.dirty}}</div>
+<div>Form Touched: {{addUserForm.touched}}</div>
+<div>Form Valid: {{addUserForm.valid}}</div>
+<div>Form Status: {{addUserForm.status}}</div>
+<div>Form values: {{addUserForm.value | json}}</div>
