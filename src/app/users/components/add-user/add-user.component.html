@@ -1,4 +1,4 @@
-<form [formGroup]='addUserForm' (ngSubmit)="onSubmit()" #form>
+<form [formGroup]='addUserForm' (ngSubmit)="onSubmit()">
         <div class="form_element">
         <label >First Name:</label>
     <input  type="text"  class="form-control" formControlName="firstName"/>
@@ -46,7 +46,7 @@
 </form>
 <hr>
 
-
+<p><strong>Service messages: </strong></p>
 <div>Form Dirty: {{addUserForm.dirty}}</div>
 <div>Form Touched: {{addUserForm.touched}}</div>
 <div>Form Valid: {{addUserForm.valid}}</div>

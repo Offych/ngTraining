@@ -27,7 +27,7 @@ function gmailDomainValidator(control: FormControl) {
   providers: [ValidationService]
 })
 export class AddUserComponent implements OnInit {
-  durationInSeconds: number = 5;
+
   message: string = "User has been saved successfully!"
   action: string = "Close"
   
@@ -48,7 +48,6 @@ export class AddUserComponent implements OnInit {
     })
   }
   
-  
   populateData(): void {
     this.addUserForm.patchValue({
       firstName: 'Sashka',
@@ -59,8 +58,10 @@ export class AddUserComponent implements OnInit {
       department: 'FrontEnd Dep',
     })
   }
+  
   onSubmit() {
     const controls = this.addUserForm.controls;
+    
     if(this.addUserForm.invalid) {
         Object.keys(controls).forEach(controlName => controls[controlName].markAsTouched());
       return;
@@ -68,9 +69,9 @@ export class AddUserComponent implements OnInit {
     console.log(this.addUserForm.value);
     this._snackBar.open(this.message, this.action)
     localStorage.setItem('user', JSON.stringify(this.addUserForm.value))
-    
-    this.router.navigate(['/users'])
-    
+    setTimeout(() => {
+      this.router.navigate(['/users']);
+    }, 2000)
   }
   
   checkFormControlField(controlName: string): boolean {
@@ -85,12 +86,13 @@ export class AddUserComponent implements OnInit {
   
   public getControl(controlName) {
     return this.addUserForm.get(controlName);
-}
+  }
+  
   private gmailValidator(control: AbstractControl): ValidationErrors {
     if(control.value && (!control.value.includes('gmail.com'))) {
       return { notGmail: true } as ValidationErrors
     }
     return null;
   }
-  
+
 }
