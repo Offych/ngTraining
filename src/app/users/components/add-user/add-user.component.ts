@@ -67,8 +67,11 @@ export class AddUserComponent implements OnInit {
       return;
     }
     console.log(this.addUserForm.value);
+    
     this._snackBar.open(this.message, this.action)
-    localStorage.setItem('user', JSON.stringify(this.addUserForm.value))
+    
+    localStorage.setItem('user', JSON.stringify(this.addUserForm.value));
+    
     setTimeout(() => {
       this.router.navigate(['/users']);
     }, 2000)
@@ -94,5 +97,4 @@ export class AddUserComponent implements OnInit {
     }
     return null;
   }
-
 }
