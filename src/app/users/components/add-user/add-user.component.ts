@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators, ValidationErrors, AbstractControl, 
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ValidationService } from './validation.service';
-//To do: check how add an additional message to email error field
+
 function gmailDomainValidator(control: FormControl) {
   let email = control.value;
   if(email && email.indexOf('@') != -1) {
@@ -22,9 +22,11 @@ function gmailDomainValidator(control: FormControl) {
 @Component({
   selector: 'add-user',
   templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss']
+  styleUrls: ['./add-user.component.scss'],
+  providers: [ValidationService]
 })
 export class AddUserComponent implements OnInit {
+  durationInSeconds: number = 5;
   
   constructor(private router: Router, private validationService: ValidationService) { }
 
@@ -36,9 +38,9 @@ export class AddUserComponent implements OnInit {
       lastName: new FormControl('', Validators.required),
       age: new FormControl('', [Validators.required, Validators.min(15), Validators.max(100)]),
       company: new FormControl('', Validators.maxLength(35)),
-      email: new FormControl('youraddress@', [Validators.email, gmailDomainValidator, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
+      email: new FormControl('youraddress@', [Validators.email, gmailDomainValidator], [this.emailAsyncServiceValidation.bind(this)]),
       department: new FormControl('', Validators.required),
-      photo: new FormControl(null, Validators.required),
+      photo: new FormControl(null),
       gender: new FormControl('Male')
     })
   }
@@ -61,10 +63,9 @@ export class AddUserComponent implements OnInit {
       return;
     }
     console.log(this.addUserForm.value);
-    console.log('Saving data...');
-    
     localStorage.setItem('user', JSON.stringify(this.addUserForm.value))
     this.router.navigate(['/users'])
+    
   }
   
   checkFormControlField(controlName: string): boolean {
@@ -73,5 +74,11 @@ export class AddUserComponent implements OnInit {
     return checked; 
   }
   
+  private emailAsyncServiceValidation(control: AbstractControl): Observable<ValidationErrors> {
+    return this.validationService.checkForUniqueAddress(control.value);
+  }
   
+  public getControl(controlName) {
+    return this.addUserForm.get(controlName);
+}
 }

@@ -8,11 +8,13 @@
     label {
         margin-right: 15px;
     }
-    
-    
 }
 span {
     &.error {
         color: red;
     }
+}
+
+.mat-button {
+    margin: 5px;
 }

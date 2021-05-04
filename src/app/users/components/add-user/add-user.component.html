@@ -1,7 +1,7 @@
 <form [formGroup]='addUserForm' (ngSubmit)="onSubmit()" #form>
-    <div class="form_element">
-        <label for="">First Name:</label>
-    <input type="text"  class="form-control" formControlName="firstName"/>
+        <div class="form_element">
+        <label >First Name:</label>
+    <input  type="text"  class="form-control" formControlName="firstName"/>
     <span class="error" *ngIf="checkFormControlField('firstName')">Name is required</span>
     </div>
     <div class="form_element">
@@ -22,7 +22,9 @@
     <div class="form_element">
             <label for="">Email:</label>
     <input type="email"  class="form-control" formControlName="email" />
-    <span class="error" *ngIf="checkFormControlField('email')">Email is required</span>
+    <span class="error" *ngIf="checkFormControlField('email') && getControl('email').errors?.email">Email is required</span>
+    <span class="error" *ngIf="checkFormControlField('email') && getControl('email').errors?.emailExist">Email exist, please use another</span>
+    <span class="error" *ngIf="checkFormControlField('email') && getControl('email').errors?.emailDomain">Please use gmail service</span>
     </div>
     <div class="form_element">
             <label for="">Department:</label>
@@ -39,10 +41,10 @@
             <label for="">Photo:</label>
             <input type="file"  class="form-control" formControlName="photo" />
     </div>
-    <button mat-button type='submit' [disabled]="!addUserForm.valid">Submit</button>
-
+    <button mat-button type='submit' [disabled]="!addUserForm.valid" color="primary" mat-raised-button>Submit</button>
+    <button mat-button (click)='populateData()' color="primary" mat-raised-button>Populate Data</button>
 </form>
-<button (click)='populateData()'>Populate Data</button>
+<hr>
 
 
 <div>Form Dirty: {{addUserForm.dirty}}</div>
