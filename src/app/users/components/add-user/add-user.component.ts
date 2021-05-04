@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, ValidationErrors, AbstractControl, 
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ValidationService } from './validation.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 /* 
 function gmailDomainValidator(control: FormControl) {
   let email = control.value;
@@ -27,8 +28,10 @@ function gmailDomainValidator(control: FormControl) {
 })
 export class AddUserComponent implements OnInit {
   durationInSeconds: number = 5;
+  message: string = "User has been saved successfully!"
+  action: string = "Close"
   
-  constructor(private router: Router, private validationService: ValidationService) { }
+  constructor(private router: Router, private validationService: ValidationService, private _snackBar: MatSnackBar) { }
 
   addUserForm: FormGroup;
 
@@ -63,7 +66,9 @@ export class AddUserComponent implements OnInit {
       return;
     }
     console.log(this.addUserForm.value);
+    this._snackBar.open(this.message, this.action)
     localStorage.setItem('user', JSON.stringify(this.addUserForm.value))
+    
     this.router.navigate(['/users'])
     
   }
@@ -87,4 +92,5 @@ export class AddUserComponent implements OnInit {
     }
     return null;
   }
+  
 }

@@ -10,6 +10,7 @@ import { CardModule } from './shared/card.module';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
 import { HeaderModule } from './header/header.module';
 import { HomeComponent } from './components/home/home.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './components/home/home.component';
     UsersModule,
     FormsModule,
     CardModule,
-    HeaderModule
+    HeaderModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
