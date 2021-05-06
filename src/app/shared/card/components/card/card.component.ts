@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef,ViewEncapsulation } from '@angular/core';
-import { IUsers } from 'src/app/users.interface';
+import { IHeroes } from 'src/app/heroes.interface';
 
 @Component({
   selector: 'card-component',
@@ -8,7 +8,7 @@ import { IUsers } from 'src/app/users.interface';
   encapsulation: ViewEncapsulation.None
 })
 export class CardComponent implements OnInit {
-    @Input() heroData: IUsers;
+    @Input() heroData: IHeroes;
     @Output() onChangedGender = new EventEmitter<boolean>();
   
 /*     @ViewChild('checkBox', {static: false}) checkBoxRef: ElementRef */

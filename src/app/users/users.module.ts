@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatCardModule } from '@angular/material/card';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { BrowserModule } from '@angular/platform-browser';
     MatButtonModule,
     MatIconModule,
     MatSnackBarModule,
-    BrowserModule
+    BrowserModule,
+    MatCardModule,
+    MatRadioModule, 
   ],
   exports: [
     UsersComponent,

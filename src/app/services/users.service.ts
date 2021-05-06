@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IUsers } from '../users.interface';
+import { IHeroes } from '../heroes.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ export class UsersService {
 
   constructor() { }
   
-  public getUsers(): IUsers[] {
+  public getHeroes(): IHeroes[] {
     return [
       {
         name: 'Thor',

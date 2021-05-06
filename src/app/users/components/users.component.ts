@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
-import { IUsers } from 'src/app/users.interface';
+import { IHeroes } from 'src/app/heroes.interface';
 import { UsersService } from 'src/app/services/users.service';
 import { CardComponent } from 'src/app/shared/card/components/card/card.component';
 
@@ -10,7 +10,7 @@ import { CardComponent } from 'src/app/shared/card/components/card/card.componen
 })
 export class UsersComponent implements OnInit {
 
-  public heroes: IUsers[] = [];
+  public heroes: IHeroes[] = [];
   showMales: boolean = true;
   
   @ViewChildren(CardComponent) cards: QueryList<CardComponent>;
@@ -21,7 +21,7 @@ export class UsersComponent implements OnInit {
   constructor(private usersService: UsersService) {}
 
     ngOnInit(): void {
-        this.heroes = this.usersService.getUsers();
+        this.heroes = this.usersService.getHeroes();
     }
 
     hideMales(): void {

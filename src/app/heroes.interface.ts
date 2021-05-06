@@ -1,4 +1,4 @@
-export interface IUsers {
+export interface IHeroes {
     name: string;
     age: number;
     gender: boolean;
