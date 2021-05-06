@@ -4,21 +4,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ValidationService } from './validation.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-/* 
-function gmailDomainValidator(control: FormControl) {
-  let email = control.value;
-  if(email && email.indexOf('@') != -1) {
-    let [_, domain] = email.split('@');
-      if(domain !== 'gmail.com') {
-        return {
-          emailDomain: {
-            parsedDomain: domain
-          }
-        }
-      }
-      return null;
-  }
-} */
+
+import { AgeValidator } from '../../../shared/validators/age.validator';
 
 @Component({
   selector: 'add-user',
@@ -39,7 +26,7 @@ export class AddUserComponent implements OnInit {
       this.addUserForm = new FormGroup({
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
-      age: new FormControl('', [Validators.required, Validators.min(15), Validators.max(100)]),
+      age: new FormControl('', [Validators.required, AgeValidator.age(15, 100)]),
       company: new FormControl('', Validators.maxLength(35)),
       email: new FormControl('youraddress@', [Validators.email, this.gmailValidator], [this.emailAsyncServiceValidation.bind(this)]), // gmailDomainValidator
       department: new FormControl('', Validators.required),
