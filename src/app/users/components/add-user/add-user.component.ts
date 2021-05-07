@@ -18,6 +18,8 @@ export class AddUserComponent implements OnInit {
 
   message: string = "User has been saved successfully!"
   action: string = "Close"
+  fullName: string;
+ 
   
   constructor(private router: Router, private validationService: ValidationService, private _snackBar: MatSnackBar) { }
 
@@ -29,11 +31,12 @@ export class AddUserComponent implements OnInit {
       lastName: new FormControl('', Validators.required),
       age: new FormControl('', [Validators.required, AgeValidator.age(15, 100)]),
       company: new FormControl('', Validators.maxLength(35)),
-      email: new FormControl('youraddress@', [Validators.email, this.gmailValidator], [this.emailAsyncServiceValidation.bind(this)]), // gmailDomainValidator
+      email: new FormControl('', [Validators.email, this.gmailValidator], [this.emailAsyncServiceValidation.bind(this)]), // gmailDomainValidator
       department: new FormControl('', Validators.required),
       photo: new FormControl(null),
       gender: new FormControl('Male')
     })
+
   }
   
   populateData(): void {

@@ -1,6 +1,6 @@
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { UsersComponent } from './components/users.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from '../shared/card.module';
 import { AddUserComponent } from './components/add-user/add-user.component';
@@ -13,12 +13,20 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
+import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
+import { UserDetailComponent } from './components/user-detail/user-detail.component';
+import { Routes, RouterModule } from '@angular/router';
+import { UsersComponent } from '../components/heroes/users.component';
 
 @NgModule({
   declarations: [
     UsersComponent,
     AddUserComponent,
-    UsersListComponent
+    UsersListComponent,
+    UserEditComponent,
+    UserCardComponent,
+    UserDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -32,7 +40,8 @@ import { MatRadioModule } from '@angular/material/radio';
     MatSnackBarModule,
     BrowserModule,
     MatCardModule,
-    MatRadioModule, 
+    MatRadioModule,
+    RouterModule
   ],
   exports: [
     UsersComponent,

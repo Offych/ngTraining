@@ -4,7 +4,7 @@ import { IHeroes } from '../heroes.interface';
 @Injectable({
   providedIn: 'root'
 })
-export class UsersService {
+export class HeroesService {
 
   constructor() { }
   

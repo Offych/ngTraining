@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChildren, QueryList } from '@angular/core';
-import { IHeroes } from 'src/app/heroes.interface';
-import { UsersService } from 'src/app/services/users.service';
+import { IHeroes } from 'src/app/components/heroes/heroes.interface';
 import { CardComponent } from 'src/app/shared/card/components/card/card.component';
+import { HeroesService } from './services/heroes.service';
 
 @Component({
     selector: 'users-component',
@@ -18,7 +18,7 @@ export class UsersComponent implements OnInit {
 /*   @ViewChild('cardComp') card: ElementRef;
   @ViewChildren('cardComp') allCards: QueryList<ElementRef>; */
 
-  constructor(private usersService: UsersService) {}
+  constructor(private usersService: HeroesService) {}
 
     ngOnInit(): void {
         this.heroes = this.usersService.getHeroes();

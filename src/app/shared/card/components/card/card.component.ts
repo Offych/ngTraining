@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef,ViewEncapsulation } from '@angular/core';
-import { IHeroes } from 'src/app/heroes.interface';
+import { IHeroes } from 'src/app/components/heroes/heroes.interface';
 
 @Component({
   selector: 'card-component',

@@ -1,0 +1,24 @@
+[
+    {
+    "id": 1,
+    "firstName": "Sashka",
+    "lastName": "Ivanov",
+    "age": 44,
+    "company": "Issoft",
+    "email": "off@tut.by",
+    "department": "FE",
+    "gender": true,
+    "photo": "https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg"
+    },
+    {
+    "id": 2,
+    "firstName": "Dimka",
+    "lastName": "Petrov",
+    "age": 17,
+    "company": "Gym 29",
+    "email": "dimka@gmail.by",
+    "department": "FE",
+    "gender": true,
+    "photo": "https://image.freepik.com/free-vector/businessman-avatar-character_24877-18284.jpg"
+    }
+]

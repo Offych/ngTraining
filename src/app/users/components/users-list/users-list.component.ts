@@ -1,18 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Observable, range, Subscription } from 'rxjs';
+import { map, filter } from 'rxjs/operators';
+import { UsersService } from '../../services/users.service';
+import { IUsers } from '../add-user/user.model';
 
 @Component({
   selector: 'users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss']
 })
-export class UsersListComponent implements OnInit {
-  user = JSON.parse(localStorage.getItem('user'))
+export class UsersListComponent {
   
-  constructor() { }
-
-  ngOnInit(): void {
-    for (const key in this.user) {
-      console.log(`${key}: ${this.user[key]}`);
-  } 
-  }
 }
