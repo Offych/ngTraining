@@ -39,7 +39,7 @@
     <button class='btn btn-outline-secondary'
             (click)='onBack()'>Back </button>
     <button class='btn btn-outline-primary'
-            (click)='onEdit()'>Edit </button>
+            [routerLink]="['/users', user.id, 'edit']">Edit </button>
   </div>
 </div>
 

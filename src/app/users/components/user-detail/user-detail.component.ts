@@ -36,7 +36,4 @@ export class UserDetailComponent implements OnInit {
   onBack(): void {
     this.router.navigate(['/users']);
   }
-  onEdit(): void {
-    console.log('click')
-  }
 }

@@ -16,6 +16,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
 import { Routes, RouterModule } from '@angular/router';
 import {UsersComponent} from './users.component';
+import {UserEditGuard} from './components/user-edit/user-edit.guard';
 
 
 @NgModule({
@@ -40,7 +41,9 @@ import {UsersComponent} from './users.component';
     MatRadioModule,
     RouterModule.forChild([
       { path: 'users', component: UsersComponent},
-      { path: 'users/:id', component: UserDetailComponent}
+      { path: 'users/:id', component: UserDetailComponent},
+      { path: 'users/:id/:edit', component: UserEditComponent,
+        canDeactivate: [UserEditGuard]}
     ])
   ],
   exports: [

@@ -26,5 +26,6 @@ export class UsersService {
         map((users: IUsers[]) => users.find(user => user.id === id))
       );
   }
+
 }
 
