@@ -1,33 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { IUsers } from '../components/add-user/user.model';
-import { delay, tap, catchError } from 'rxjs/operators';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {IUsers} from '../user.model';
+import {map, tap} from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root'
 })
 export class UsersService {
-    private usersUrl = 'api/users/users.json';
-    
-    constructor(private http: HttpClient) {}
+  private usersUrl = 'api/users/users.json';
 
-    getUsers(): Observable<IUsers[]> {
-        return this.http.get<IUsers[]>(this.usersUrl).pipe(
-            tap(data => console.log('All: ' , JSON.stringify(data))),
-            catchError(this.handleError)
-        );
-    }
+  constructor(private http: HttpClient) { }
 
-    handleError(err: HttpErrorResponse) {
-        let errorMessage = '';
-        if(err.error instanceof ErrorEvent) {
-            errorMessage = `Something goes wrong... ${err.error.message}`
-        } else {
-            errorMessage = `Server returned code: ${err.status}, error message is" ${err.message}`; 
-        }
-        console.error(errorMessage);
-        return throwError(errorMessage)
-    }
+  getUsers(): Observable<IUsers[]> {
+    return this.http.get<IUsers[]>(this.usersUrl)
+      .pipe(
+        tap(data => console.log('All' + JSON.stringify(data)))
+      )
+  }
+
+  getUser(id: number): Observable<IUsers> {
+    return this.getUsers()
+      .pipe(
+        tap(data => console.log('Person :' + JSON.stringify(data))),
+        map((users: IUsers[]) => users.find(user => user.id === id))
+      );
+  }
 }
+

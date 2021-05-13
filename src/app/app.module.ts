@@ -12,13 +12,15 @@ import { HomeComponent } from './components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { BindingsComponent } from './components/bindings/bindings.component';
+import { RxjsComponent } from './components/rxjs/rxjs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BindingsComponent,
     LifecycleComponent,
-    HomeComponent
+    HomeComponent,
+    RxjsComponent
   ],
   imports: [
     BrowserModule,

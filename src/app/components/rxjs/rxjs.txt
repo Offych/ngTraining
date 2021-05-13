@@ -1,0 +1,28 @@
+/*   const intervalStream$ = interval(1000);
+
+    this.sub = intervalStream$
+      .pipe(
+        filter( value => value % 2 === 0),
+        map((value) => `Mapped value  ${value}`)
+      )
+      .subscribe((value) =>
+      console.log(value));*/
+  /*const stream$ = new Observable(observer => {
+
+    setTimeout(() => {
+      observer.next(1);
+    }, 1500)
+
+    setTimeout(() => {
+      observer.complete();
+    }, 1900);
+
+    setTimeout(() => {
+      observer.error('Hmmm, error');
+    }, 2000);
+  })
+    stream$
+      .subscribe(
+        value => console.log('Next: ', value),
+          error => console.log(error)),
+            () => console.log('Complete')*/
