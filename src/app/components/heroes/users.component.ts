@@ -12,9 +12,9 @@ export class UsersComponent implements OnInit {
 
   public heroes: IHeroes[] = [];
   showMales: boolean = true;
-  
+
   @ViewChildren(CardComponent) cards: QueryList<CardComponent>;
-  
+
 /*   @ViewChild('cardComp') card: ElementRef;
   @ViewChildren('cardComp') allCards: QueryList<ElementRef>; */
 
@@ -27,11 +27,12 @@ export class UsersComponent implements OnInit {
     hideMales(): void {
         this.showMales = !this.showMales;
     }
-    
+
     onChanged() { }
-    
+
 
     heroesActivationHandler() {
         this.cards.forEach(hero => hero.activateThisHero())
     }
+
 }

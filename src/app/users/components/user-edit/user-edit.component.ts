@@ -1,7 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {IUsers} from '../../user.model';
 import {UsersService} from '../../services/users.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {NgForm} from '@angular/forms';
+import {Observable, Subject} from 'rxjs';
 
 @Component({
   selector: 'user-edit',
@@ -10,23 +12,26 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class UserEditComponent implements OnInit {
   user: IUsers;
+  public testSubject = new Subject();
 
 
   constructor(private usersService: UsersService,
               private router: Router,
               private route: ActivatedRoute) { }
 
+
   ngOnInit(): void {
     const param = this.route.snapshot.paramMap.get('id');
-    console.log(param)
     if(param) {
       const id = +param;
       this.getUser(id);
     }
+  console.log(this.testSubject)
   }
   getUser(id: number): void {
     this.usersService.getUser(id).subscribe({
       next: user => this.user = user
     });
   }
+
 }

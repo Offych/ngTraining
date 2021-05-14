@@ -18,9 +18,10 @@ export class AddUserComponent implements OnInit {
 
   message: string = "User has been saved successfully!"
   action: string = "Close"
-  fullName: string;
- 
-  
+  firstNameTracked: string = '';
+  lastNameTracked: string = '';
+
+
   constructor(private router: Router, private validationService: ValidationService, private _snackBar: MatSnackBar) { }
 
   addUserForm: FormGroup;
@@ -36,9 +37,14 @@ export class AddUserComponent implements OnInit {
       photo: new FormControl(null),
       gender: new FormControl('Male')
     })
-
+      this.addUserForm.get('firstName').valueChanges.subscribe( data => {
+        this.firstNameTracked = data;
+      })
+      this.addUserForm.get('lastName').valueChanges.subscribe(data => {
+        this.lastNameTracked = data;
+      })
   }
-  
+
   populateData(): void {
     this.addUserForm.patchValue({
       firstName: 'Sashka',
@@ -49,39 +55,38 @@ export class AddUserComponent implements OnInit {
       department: 'FrontEnd Dep',
     })
   }
-  
+
   onSubmit() {
     const controls = this.addUserForm.controls;
-    
+
     if(this.addUserForm.invalid) {
         Object.keys(controls).forEach(controlName => controls[controlName].markAsTouched());
       return;
     }
-    console.log(this.addUserForm.value);
-    
+
     this._snackBar.open(this.message, this.action)
-    
+
     localStorage.setItem('user', JSON.stringify(this.addUserForm.value));
-    
+
     setTimeout(() => {
       this.router.navigate(['/users']);
     }, 2000)
   }
-  
+
   checkFormControlField(controlName: string): boolean {
     let control = this.addUserForm.controls[controlName];
     let checked = control.invalid && control.touched;
-    return checked; 
+    return checked;
   }
-  
+
   private emailAsyncServiceValidation(control: AbstractControl): Observable<ValidationErrors> {
     return this.validationService.checkForUniqueAddress(control.value);
   }
-  
+
   public getControl(controlName) {
     return this.addUserForm.get(controlName);
   }
-  
+
   private gmailValidator(control: AbstractControl): ValidationErrors {
     if(control.value && (!control.value.includes('gmail.com'))) {
       return { notGmail: true } as ValidationErrors

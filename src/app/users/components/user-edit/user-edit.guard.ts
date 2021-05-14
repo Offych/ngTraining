@@ -12,7 +12,7 @@ export class UserEditGuard implements CanDeactivate<UserEditComponent> {
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.log('in canDeactivate')
-    return confirm("Are you sure? ");
+
+    return confirm("Form has unsaved data! Are you sure?");
   }
 }

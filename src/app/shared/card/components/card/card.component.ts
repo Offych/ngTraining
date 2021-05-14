@@ -10,9 +10,10 @@ import { IHeroes } from 'src/app/components/heroes/heroes.interface';
 export class CardComponent implements OnInit {
     @Input() heroData: IHeroes;
     @Output() onChangedGender = new EventEmitter<boolean>();
-  
+
+
 /*     @ViewChild('checkBox', {static: false}) checkBoxRef: ElementRef */
-  
+
     heroIsActivated: boolean;
 
     constructor() { }
@@ -24,18 +25,18 @@ export class CardComponent implements OnInit {
         this.heroData.gender = true;
         this.onChangedGender.emit();
     }
-  
+
     checkAge() {
         if(this.heroData.age < 18) {
             return true;
         }
         return false;
     }
-    
+
 /*     focusCheckboxes() {
         console.log(this.checkBoxRef.nativeElement.checked)
     } */
-    
+
     activateThisHero(): void {
         if(this.heroData.age > 18) {
             this.heroIsActivated = !this.heroIsActivated;
