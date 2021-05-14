@@ -21,12 +21,17 @@ export class UserEditComponent implements OnInit {
 
 
   ngOnInit(): void {
-    const param = this.route.snapshot.paramMap.get('id');
+    this.route.paramMap.subscribe(
+      params => {
+        const id = +params.get('id');
+        this.getUser(id);
+      }
+    )
+   /* const param = this.route.snapshot.paramMap.get('id');
     if(param) {
       const id = +param;
       this.getUser(id);
-    }
-  console.log(this.testSubject)
+    }*/
   }
   getUser(id: number): void {
     this.usersService.getUser(id).subscribe({

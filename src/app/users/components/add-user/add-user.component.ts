@@ -28,15 +28,15 @@ export class AddUserComponent implements OnInit {
 
   ngOnInit(): void {
       this.addUserForm = new FormGroup({
-      firstName: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.required),
-      age: new FormControl('', [Validators.required, AgeValidator.age(15, 100)]),
-      company: new FormControl('', Validators.maxLength(35)),
-      email: new FormControl('', [Validators.email, this.gmailValidator], [this.emailAsyncServiceValidation.bind(this)]), // gmailDomainValidator
-      department: new FormControl('', Validators.required),
-      photo: new FormControl(null),
-      gender: new FormControl('Male')
-    })
+        firstName: new FormControl('', Validators.required),
+        lastName: new FormControl('', Validators.required),
+        age: new FormControl('', [Validators.required, AgeValidator.age(15, 100)]),
+        company: new FormControl('', Validators.maxLength(35)),
+        email: new FormControl('', [Validators.email, this.gmailValidator], [this.emailAsyncServiceValidation.bind(this)]), // gmailDomainValidator
+        department: new FormControl('', Validators.required),
+        photo: new FormControl(null),
+        gender: new FormControl('Male')
+      })
       this.addUserForm.get('firstName').valueChanges.subscribe( data => {
         this.firstNameTracked = data;
       })
