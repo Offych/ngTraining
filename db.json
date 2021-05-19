@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Sashka",
+      "lastName": "Ivanov",
+      "age": 44,
+      "company": "Issoft",
+      "email": "off@tut.by",
+      "department": "FE",
+      "gender": true,
+      "photo": "https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg"
+    },
+    {
+      "id": 2,
+      "firstName": "Dimka",
+      "lastName": "Petrov",
+      "age": 17,
+      "company": "Gym 29",
+      "email": "dimka@gmail.by",
+      "department": "FE",
+      "gender": true,
+      "photo": "https://image.freepik.com/free-vector/businessman-avatar-character_24877-18284.jpg"
+    },
+    {
+      "firstName": "Sashko",
+      "lastName": "Off",
+      "age": 44,
+      "company": 44,
+      "email": "Sashkoff@gmail.com",
+      "department": "FrontEnd Dep",
+      "photo": "https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png",
+      "gender": "Male",
+      "id": 3
+    },
+    {
+      "firstName": "Polina",
+      "lastName": "Ivanova",
+      "age": 18,
+      "company": "IS Soft",
+      "email": "Pol@gmail.com",
+      "department": "QA Dep",
+      "photo": "https://image.freepik.com/free-vector/smiling-girl-avatar_102172-32.jpg",
+      "gender": "Female",
+      "id": 4
+    }
+  ]
+}

@@ -7,24 +7,39 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 import { AgeValidator } from '../../../shared/validators/age.validator';
+import {IUsers} from '../../user.model';
+import {UsersService} from '../../services/users.service';
 
 @Component({
   selector: 'add-user',
-  templateUrl: './add-user.component.html',
-  styleUrls: ['./add-user.component.scss'],
+  templateUrl: './user-add.component.html',
+  styleUrls: ['./user-add.component.scss'],
   providers: [ValidationService]
 })
-export class AddUserComponent implements OnInit {
-
+export class UserAddComponent implements OnInit {
+  users: IUsers[];
   message: string = "User has been saved successfully!"
   action: string = "Close"
   firstNameTracked: string = '';
   lastNameTracked: string = '';
 
 
-  constructor(private router: Router, private validationService: ValidationService, private _snackBar: MatSnackBar) { }
+  constructor(private router: Router, private validationService: ValidationService, private _snackBar: MatSnackBar,
+              private usersService: UsersService) { }
 
   addUserForm: FormGroup;
+
+/*  newUser: {
+    id?: number,
+    firstName: string,
+    lastName: string,
+    age: number,
+    company: string,
+    email: string,
+    department: string,
+    photo: string,
+    gender: boolean
+  }*/
 
   ngOnInit(): void {
       this.addUserForm = new FormGroup({
@@ -66,11 +81,27 @@ export class AddUserComponent implements OnInit {
 
     this._snackBar.open(this.message, this.action)
 
-    localStorage.setItem('user', JSON.stringify(this.addUserForm.value));
+    //localStorage.setItem('user', JSON.stringify(this.addUserForm.value));
 
     setTimeout(() => {
       this.router.navigate(['/users']);
     }, 2000)
+
+    const newUser: IUsers = {
+      firstName: this.addUserForm.get('firstName').value,
+      lastName: this.addUserForm.get('lastName').value,
+      age: this.addUserForm.get('age').value,
+      company: this.addUserForm.get('company').value,
+      email: this.addUserForm.get('email').value,
+      department: this.addUserForm.get('department').value,
+      photo: this.addUserForm.get('photo').value,
+      gender: this.addUserForm.get('gender').value
+    }
+    //console.log(newUser)
+    this.usersService.addUser(newUser).subscribe((user) => {
+      this.users.push(user)
+    })
+
   }
 
   checkFormControlField(controlName: string): boolean {
@@ -93,4 +124,5 @@ export class AddUserComponent implements OnInit {
     }
     return null;
   }
+
 }

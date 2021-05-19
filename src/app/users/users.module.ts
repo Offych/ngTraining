@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from '../shared/card.module';
-import { AddUserComponent } from './components/add-user/add-user.component';
+import { UserAddComponent } from './components/user-add/user-add.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,11 +18,10 @@ import { Routes, RouterModule } from '@angular/router';
 import {UsersComponent} from './users.component';
 import {UserEditGuard} from './components/user-edit/user-edit.guard';
 
-
 @NgModule({
   declarations: [
     UsersComponent,
-    AddUserComponent,
+    UserAddComponent,
     UserEditComponent,
     UserDetailComponent,
   ],
@@ -48,7 +47,7 @@ import {UserEditGuard} from './components/user-edit/user-edit.guard';
   ],
   exports: [
     UsersComponent,
-    AddUserComponent
+    UserAddComponent
   ]
 })
 export class UsersModule { }

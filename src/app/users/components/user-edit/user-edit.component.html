@@ -1,4 +1,5 @@
 <div class="container" *ngIf="user">
+  <form #editForm>
     <div class="form-group">
       <label>First Name: </label>
       <input type="text" class="form-control" value="{{user.firstName}}">
@@ -24,7 +25,8 @@
       <input type="text" class="form-control" value="{{user.email}}">
     </div>
   <div>
-    <button class="btn btn-primary">Update User</button>
+    <button type="submit" class="btn btn-primary" (click)="onUpdateUser(user)" routerLink="/">Update User</button>
   </div>
+  </form>
   </div>
 

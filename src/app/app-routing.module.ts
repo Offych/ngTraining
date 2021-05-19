@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddUserComponent } from './users/components/add-user/add-user.component';
+import { UserAddComponent } from './users/components/user-add/user-add.component';
 import { HomeComponent } from './components/home/home.component';
 import { UserDetailComponent } from './users/components/user-detail/user-detail.component';
 import { UsersDetailGuard } from './users/users-detail.guard';
@@ -10,7 +10,7 @@ import {UserEditComponent} from './users/components/user-edit/user-edit.componen
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'addUser', component: AddUserComponent },
+  { path: 'addUser', component: UserAddComponent },
   { path: 'rxjs', component: RxjsComponent }
 ];
 
