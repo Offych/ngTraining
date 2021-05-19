@@ -43,6 +43,17 @@
       "photo": "https://image.freepik.com/free-vector/smiling-girl-avatar_102172-32.jpg",
       "gender": "Female",
       "id": 4
+    },
+    {
+      "firstName": "Sashka",
+      "lastName": "Smotr",
+      "age": 44,
+      "company": "IS Soft",
+      "email": "SashkaSmotr@gmail.com",
+      "department": "FrontEnd Dep",
+      "photo": null,
+      "gender": "Male",
+      "id": 5
     }
   ]
 }

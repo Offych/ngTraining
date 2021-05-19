@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IUsers } from '../../user.model';
-import { Subscription } from 'rxjs';
+import {Subject, Subscription} from 'rxjs';
 import { UsersService } from '../../services/users.service';
+import {first} from 'rxjs/operators';
 
 @Component({
 

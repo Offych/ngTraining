@@ -18,16 +18,12 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<IUsers[]> {
-    return this.http.get<IUsers[]>(this.usersUrl)
-     // .pipe(
-   //     tap(data => console.log('All' + JSON.stringify(data)))
-     // )
+    return this.http.get<IUsers[]>(this.usersUrl);
   }
 
   getUser(id: number): Observable<IUsers> {
     return this.getUsers()
       .pipe(
-     //   tap(data => console.log('Person :' + JSON.stringify(data))),
         map((users: IUsers[]) => users.find(user => user.id === id))
       );
   }
@@ -37,8 +33,7 @@ export class UsersService {
   }
 
   updateUser(user: IUsers): Observable<IUsers> {
-    const url = `${this.usersUrl}/${user.id}`;
-    return this.http.put<IUsers>(url, user, httpOptions);
+    return this.http.put<IUsers>(this.usersUrl + '/' + user.id, user);
   }
 }
 
