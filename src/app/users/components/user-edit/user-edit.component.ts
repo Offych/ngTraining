@@ -28,7 +28,7 @@ export class UserEditComponent implements OnInit {
       email: new FormControl(''),
       department: new FormControl(''),
       photo: new FormControl(null),
-      gender: new FormControl()
+      gender: new FormControl('')
     })
   }
 
@@ -51,7 +51,9 @@ export class UserEditComponent implements OnInit {
     });
   }
 
-  onUpdateUser(user) {
-    this.usersService.updateUser(user)
+  onUpdateUser(): void {
+    this.usersService.updateUser(this.user.id, this.user).subscribe(
+      data => console.log(data)
+    )
   }
 }

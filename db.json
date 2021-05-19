@@ -4,10 +4,10 @@
       "id": 1,
       "firstName": "Sashka",
       "lastName": "Ivanov",
-      "age": 44,
+      "age": 23,
       "company": "Issoft",
       "email": "off@tut.by",
-      "department": "FE",
+      "department": "Front END",
       "gender": true,
       "photo": "https://www.nj.com/resizer/zovGSasCaR41h_yUGYHXbVTQW2A=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/SJGKVE5UNVESVCW7BBOHKQCZVE.jpg"
     },
@@ -20,7 +20,7 @@
       "email": "dimka@gmail.by",
       "department": "FE",
       "gender": true,
-      "photo": "https://image.freepik.com/free-vector/businessman-avatar-character_24877-18284.jpg"
+      "photo": "https://image.freepik.com/free-vector/businessman-ava22tar-character_24877-18284.jpg"
     },
     {
       "firstName": "Sashko",
@@ -36,7 +36,7 @@
     {
       "firstName": "Polina",
       "lastName": "Ivanova",
-      "age": 18,
+      "age": 22,
       "company": "IS Soft",
       "email": "Pol@gmail.com",
       "department": "QA Dep",
@@ -46,12 +46,12 @@
     },
     {
       "firstName": "Sashka",
-      "lastName": "Smotr",
+      "lastName": "Smotrick",
       "age": 44,
       "company": "IS Soft",
       "email": "SashkaSmotr@gmail.com",
       "department": "FrontEnd Dep",
-      "photo": null,
+      "photo": "https://xenforo.com/community/data/avatars/o/202/202502.jpg",
       "gender": "Male",
       "id": 5
     }

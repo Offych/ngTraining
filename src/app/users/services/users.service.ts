@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {IUsers} from '../user.model';
-import {map, tap} from 'rxjs/operators';
+import {delay, map, tap} from 'rxjs/operators';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -32,7 +32,7 @@ export class UsersService {
     return this.http.post<IUsers>(this.usersUrl, user, httpOptions);
   }
 
-  updateUser(user: IUsers): Observable<IUsers> {
+  updateUser(id: number, user: IUsers): Observable<IUsers> {
     return this.http.put<IUsers>(this.usersUrl + '/' + user.id, user);
   }
 }

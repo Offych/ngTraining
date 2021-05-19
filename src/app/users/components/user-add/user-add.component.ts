@@ -29,18 +29,6 @@ export class UserAddComponent implements OnInit {
 
   addUserForm: FormGroup;
 
-/*  newUser: {
-    id?: number,
-    firstName: string,
-    lastName: string,
-    age: number,
-    company: string,
-    email: string,
-    department: string,
-    photo: string,
-    gender: boolean
-  }*/
-
   ngOnInit(): void {
       this.addUserForm = new FormGroup({
         firstName: new FormControl('', Validators.required),
