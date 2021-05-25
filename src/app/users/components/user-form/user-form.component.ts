@@ -38,8 +38,6 @@ export class UserFormComponent implements OnInit {
       gender: new FormControl('Male')
     })
 
-    this.userFormEmit.emit(this.userForm)
-
   }
 
   checkFormControlField(controlName: string): boolean {
