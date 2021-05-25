@@ -1,9 +1,7 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IUsers } from '../../user.model';
-import {Subject, Subscription} from 'rxjs';
 import { UsersService } from '../../services/users.service';
-import {first} from 'rxjs/operators';
 
 @Component({
 
@@ -26,12 +24,6 @@ export class UserDetailComponent implements OnInit {
         this.getUser(id);
       }
     )
-   /* this.route.snapshot.paramMap.get('id');
-    console.log(param)
-    if(param) {
-      const id = +param;
-      this.getUser(id);
-    }*/
   }
 
   getUser(id: number): void {

@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_element {
+  margin: 30px;
+  label {
+    margin-right: 15px;
+  }
+}
+span {
+  &.error {
+    color: red;
+    margin-left: 15px;
+  }
+}
+
+.mat-button {
+  margin: 5px;
+}

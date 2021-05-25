@@ -6,6 +6,7 @@ import {Form, FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
 import {Observable, ReplaySubject, Subject} from 'rxjs';
 import {UserAddComponent} from '../user-add/user-add.component';
 import {AgeValidator} from '../../../shared/validators/age.validator';
+import { ValidationService } from '../user-add/validation.service';
 
 @Component({
   selector: 'user-edit',
@@ -14,35 +15,24 @@ import {AgeValidator} from '../../../shared/validators/age.validator';
 })
 export class UserEditComponent implements OnInit {
   user: IUsers;
-  editUserForm: FormGroup;
-  subject: ReplaySubject<any>
+  @Input('userEditForm') userForm: FormGroup;
+
 
   constructor(private usersService: UsersService,
               private router: Router,
-              private route: ActivatedRoute) {
-    this.editUserForm = new FormGroup({
-      firstName: new FormControl(''),
-      lastName: new FormControl(''),
-      age: new FormControl(''),
-      company: new FormControl(''),
-      email: new FormControl(''),
-      department: new FormControl(''),
-      photo: new FormControl(null),
-      gender: new FormControl('')
-    })
+              private route: ActivatedRoute,
+              ) {
   }
 
   ngOnInit(): void {
 
-
     this.route.paramMap.subscribe(
       params => {
         const id = +params.get('id');
-        this.getUser(id);
-      })
 
-    this.editUserForm.valueChanges.subscribe(data =>
-     console.log(data))
+        this.getUser(id);
+
+      })
   }
 
   getUser(id: number): void {
@@ -56,4 +46,5 @@ export class UserEditComponent implements OnInit {
       data => console.log(data)
     )
   }
+
 }
