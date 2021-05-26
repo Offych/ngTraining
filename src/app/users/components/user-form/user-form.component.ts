@@ -6,7 +6,8 @@ import {Router} from '@angular/router';
 
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {UsersService} from '../../services/users.service';
-import {Observable} from 'rxjs';
+import {combineLatest, concat, forkJoin, merge, Observable} from 'rxjs';
+import {combineAll, debounceTime, distinctUntilChanged, map, mergeAll, pairwise, withLatestFrom} from 'rxjs/operators';
 
 @Component({
   selector: 'user-form',
@@ -20,6 +21,8 @@ export class UserFormComponent implements OnInit {
   action: string = "Close"
 
   userForm: FormGroup;
+  fullNameForEmailInput: any;
+  gmail: string = '@gmail.com'
 
   constructor(private router: Router, private _snackBar: MatSnackBar) { }
 
@@ -35,6 +38,11 @@ export class UserFormComponent implements OnInit {
       gender: new FormControl('Male')
     })
 
+    const firstName$ = this.userForm.get('firstName').valueChanges;
+    const lastName$ = this.userForm.get('lastName').valueChanges;
+    combineLatest([firstName$, lastName$]).
+      pipe(map(value => value.toString().replace(/,/g, '')))
+      .subscribe( data =>  this.fullNameForEmailInput = data)
   }
 
   checkFormControlField(controlName: string): boolean {

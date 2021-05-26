@@ -28,8 +28,6 @@ export class UserEditShellComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
     this.route.paramMap.subscribe(
       params => {
         const id = +params.get('id');
@@ -44,7 +42,7 @@ export class UserEditShellComponent implements OnInit {
       params => {
         const id = +params.get('id');
         const user = this.UsersFormComponent.userForm.value;
-        this.usersService.updateUser(id, user).subscribe();
+        this.usersService.updateUser(id, user).subscribe()
       }
     )
   }
