@@ -17,6 +17,8 @@ export class UserEditShellComponent implements OnInit {
   users: IUsers[];
   user: IUsers;
 
+
+
   @ViewChild(UserFormComponent) UsersFormComponent: UserFormComponent;
 
   constructor(private usersService: UsersService,
@@ -26,6 +28,8 @@ export class UserEditShellComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+
     this.route.paramMap.subscribe(
       params => {
         const id = +params.get('id');
@@ -36,11 +40,12 @@ export class UserEditShellComponent implements OnInit {
 
 
   onUpdateUser(): void {
-
-    const user = this.UsersFormComponent.userForm.value;
-
-    this.usersService.updateUser(user).subscribe(
-      user => this.user = user
+    this.route.paramMap.subscribe(
+      params => {
+        const id = +params.get('id');
+        const user = this.UsersFormComponent.userForm.value;
+        this.usersService.updateUser(id, user).subscribe();
+      }
     )
   }
 
