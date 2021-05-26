@@ -1,9 +1,9 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 import {AgeValidator} from '../../../shared/validators/age.validator';
 import {IUsers} from '../../user.model';
 import {Router} from '@angular/router';
-import {ValidationService} from '../user-add/validation.service';
+
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {UsersService} from '../../services/users.service';
 import {Observable} from 'rxjs';
@@ -14,17 +14,14 @@ import {Observable} from 'rxjs';
   styleUrls: ['./user-form.component.scss']
 })
 export class UserFormComponent implements OnInit {
-  @Output() userFormEmit: EventEmitter<any> = new EventEmitter<any>();
+  @Input() user: IUsers;
   users: IUsers[];
   message: string = "User has been saved successfully!"
   action: string = "Close"
-  firstNameTracked: string = '';
-  lastNameTracked: string = '';
 
   userForm: FormGroup;
 
-  constructor(private router: Router, private _snackBar: MatSnackBar,
-              private usersService: UsersService) { }
+  constructor(private router: Router, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.userForm = new FormGroup({
@@ -32,7 +29,7 @@ export class UserFormComponent implements OnInit {
       lastName: new FormControl('', Validators.required),
       age: new FormControl('', [Validators.required, AgeValidator.age(15, 100)]),
       company: new FormControl('', Validators.maxLength(35)),
-      email: new FormControl('', [Validators.email, this.gmailValidator], ), // gmailDomainValidator
+      email: new FormControl('', [Validators.email, this.gmailValidator]), // gmailDomainValidator
       department: new FormControl('', Validators.required),
       photo: new FormControl(null),
       gender: new FormControl('Male')
@@ -46,9 +43,7 @@ export class UserFormComponent implements OnInit {
     return checked;
   }
 
-  //private emailAsyncServiceValidation(control: AbstractControl): Observable<ValidationErrors> {
-   // return this.validationService.checkForUniqueAddress(control.value);
- // }
+
 
   public getControl(controlName) {
     return this.userForm.get(controlName);
