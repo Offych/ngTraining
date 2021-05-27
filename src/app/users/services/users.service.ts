@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {Observable, Subject, throwError} from 'rxjs';
 import {IUsers} from '../user.model';
-import {delay, map, tap} from 'rxjs/operators';
+import {catchError, delay, map, tap} from 'rxjs/operators';
+import {ActivatedRoute, ActivatedRouteSnapshot} from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -33,7 +34,8 @@ export class UsersService {
   }
 
   updateUser(id: number, user: IUsers): Observable<IUsers> {
-    return this.http.put<IUsers>(this.usersUrl + '/' + user.id, user);
+    const url = `${this.usersUrl}/${id}`
+    return this.http.put<IUsers>(url, user, httpOptions)
   }
-}
+ }
 

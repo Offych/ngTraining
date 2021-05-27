@@ -13,6 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { BindingsComponent } from './components/bindings/bindings.component';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
+import { UsersShellComponent } from './users/components/users-shell/users-shell.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RxjsComponent } from './components/rxjs/rxjs.component';
     BindingsComponent,
     LifecycleComponent,
     HomeComponent,
-    RxjsComponent
+    RxjsComponent,
+    UsersShellComponent
   ],
   imports: [
     BrowserModule,
