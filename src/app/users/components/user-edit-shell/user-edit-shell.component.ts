@@ -3,7 +3,7 @@ import {IUsers} from '../../user.model';
 import {UsersService} from '../../services/users.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {UserFormComponent} from '../user-form/user-form.component';
-import {Observable} from 'rxjs';
+import {BehaviorSubject, Observable, ReplaySubject, Subject} from 'rxjs';
 import {FormGroup} from '@angular/forms';
 
 
@@ -17,7 +17,7 @@ export class UserEditShellComponent implements OnInit {
   users: IUsers[];
   user: IUsers;
 
-
+  obs = new ReplaySubject();
 
   @ViewChild(UserFormComponent) UsersFormComponent: UserFormComponent;
 
@@ -42,6 +42,8 @@ export class UserEditShellComponent implements OnInit {
       params => {
         const id = +params.get('id');
         const user = this.UsersFormComponent.userForm.value;
+        this.obs.subscribe(v => console.log(v))
+        this.obs.next(user);
         this.usersService.updateUser(id, user).subscribe()
       }
     )

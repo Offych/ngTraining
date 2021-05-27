@@ -38,11 +38,12 @@ export class UserFormComponent implements OnInit {
       gender: new FormControl('Male')
     })
 
-    const firstName$ = this.userForm.get('firstName').valueChanges;
-    const lastName$ = this.userForm.get('lastName').valueChanges;
+    const firstName$: any = this.userForm.get('firstName').valueChanges;
+    const lastName$: any = this.userForm.get('lastName').valueChanges;
     combineLatest([firstName$, lastName$]).
       pipe(map(value => value.toString().replace(/,/g, '')))
       .subscribe( data =>  this.fullNameForEmailInput = data)
+
   }
 
   checkFormControlField(controlName: string): boolean {
