@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { BindingsComponent } from './components/bindings/bindings.component';
 import { RxjsComponent } from './components/rxjs/rxjs.component';
 import { UsersShellComponent } from './users/components/users-shell/users-shell.component';
+import { AuthComponent } from './auth/auth/auth.component';
+import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -22,18 +24,21 @@ import { UsersShellComponent } from './users/components/users-shell/users-shell.
     LifecycleComponent,
     HomeComponent,
     RxjsComponent,
-    UsersShellComponent
+    UsersShellComponent,
+    AuthComponent,
+    LoadingSpinnerComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    UsersModule,
-    FormsModule,
-    CardModule,
-    HeaderModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        UsersModule,
+        FormsModule,
+        CardModule,
+        HeaderModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        ReactiveFormsModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

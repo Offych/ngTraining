@@ -7,12 +7,12 @@ import {UserEditShellComponent} from './user-edit-shell.component';
   providedIn: 'root'
 })
 export class UserEditGuard implements CanDeactivate<UserEditShellComponent> {
+
   canDeactivate(
     component: UserEditShellComponent,
     currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot,
     nextState?: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-
     return confirm("Form has unsaved data! Are you sure?");
   }
 }

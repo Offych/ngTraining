@@ -9,15 +9,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { BrowserModule } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
 import { UserEditShellComponent } from './components/user-edit-shell/user-edit-shell.component';
 import { UserDetailComponent } from './components/user-detail/user-detail.component';
-import { RouterModule } from '@angular/router';
 import {UsersComponent} from './users.component';
-import {UserEditGuard} from './components/user-edit-shell/user-edit.guard';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import {UsersRoutingModule} from './users-routing.module';
 
 @NgModule({
   declarations: [
@@ -37,15 +35,9 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     MatButtonModule,
     MatIconModule,
     MatSnackBarModule,
-    BrowserModule,
     MatCardModule,
     MatRadioModule,
-    RouterModule.forChild([
-      { path: 'users', component: UsersComponent},
-      { path: 'users/:id', component: UserDetailComponent},
-      { path: 'users/:id/:edit', component: UserEditShellComponent,
-        canDeactivate: [UserEditGuard]}
-    ])
+    UsersRoutingModule
   ],
   exports: [
     UsersComponent

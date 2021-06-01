@@ -1,7 +1,9 @@
 <mat-toolbar class="mat-elevation-z3">
         <mat-icon>check_circle</mat-icon><a mat-button routerLink="/">MyMegaApp</a>
         <div class="divider"></div>
-        <a mat-button routerLink="/addUser" routerLinkActive="active">Add User</a>
-        <a mat-button routerLink="/users">Users</a>
-        <a mat-button routerLink="/rxjs">RxJS</a>
+        <a mat-button routerLink="/addUser" routerLinkActive="active" *ngIf="isAuthenticated">Add User</a>
+        <a mat-button routerLink="/users" *ngIf="isAuthenticated">Users</a>
+        <a mat-button routerLink="/auth" *ngIf="!isAuthenticated">Login</a>
+        <a mat-button *ngIf="isAuthenticated" (click)="onLogout()">Logout</a>
 </mat-toolbar>
+<br>
