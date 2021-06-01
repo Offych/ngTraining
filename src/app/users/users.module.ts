@@ -1,4 +1,3 @@
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +15,7 @@ import { UserDetailComponent } from './components/user-detail/user-detail.compon
 import {UsersComponent} from './users.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import {UsersRoutingModule} from './users-routing.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -37,7 +37,8 @@ import {UsersRoutingModule} from './users-routing.module';
     MatSnackBarModule,
     MatCardModule,
     MatRadioModule,
-    UsersRoutingModule
+    UsersRoutingModule,
+    RouterModule
   ],
   exports: [
     UsersComponent

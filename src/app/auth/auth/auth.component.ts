@@ -15,6 +15,7 @@ export class AuthComponent implements OnInit {
   isLoading = false;
   error: string = null;
   userAuthForm: FormGroup;
+  userName: string;
 
   onSwitchMode() {
     this.isLoggedInMode = !this.isLoggedInMode;
@@ -37,15 +38,18 @@ export class AuthComponent implements OnInit {
     let checked = emailControl.invalid && emailControl.touched;
     return  checked;
   }
-
-  public getControl(controlName) {
-    return this.userAuthForm.get(controlName);
+  get confirmPasswordsIsInvalidAndTouched() {
+    let confirmPassword = this.userAuthForm.get('passwordGroup').get('confirmPassword');
+    let checked = confirmPassword.invalid && confirmPassword.touched;
+    return checked;
   }
 
   onSubmit() {
 
     const email = this.userAuthForm.get('email').value;
     const password = this.userAuthForm.get('passwordGroup').get('password').value;
+    //const user = this.userAuthForm.get('userName').value;
+
 
     console.info(this.userAuthForm.value)
        let authData$: Observable<AuthResponseData>;

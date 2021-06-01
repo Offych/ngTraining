@@ -38,7 +38,7 @@ export class AuthService {
       {
         email: email,
         password: password,
-        returnSecureToken: true
+        returnSecureToken: true,
       }).pipe(catchError(this.handleError),
       tap(responseData => {
         this.handleAuthProcess(responseData.email, responseData.localId, responseData.idToken, +responseData.expiresIn)
@@ -50,7 +50,7 @@ export class AuthService {
   }
 
 
-    private handleAuthProcess(email: string, userId: string, token: string, expiresIn: number) {
+    private handleAuthProcess(email: string, userId: string, token: string, expiresIn: number,) {
 
     const expirationDate = new Date(new Date().getTime() + expiresIn * 1000);
     const user = new User(email, userId, token, expirationDate);
