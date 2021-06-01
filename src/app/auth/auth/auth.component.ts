@@ -39,7 +39,7 @@ export class AuthComponent implements OnInit {
     return  checked;
   }
   get confirmPasswordsIsInvalidAndTouched() {
-    let confirmPassword = this.userAuthForm.get('passwordGroup').get('confirmPassword');
+    let confirmPassword = this.userAuthForm.get('passwordGroup.confirmPassword');
     let checked = confirmPassword.invalid && confirmPassword.touched;
     return checked;
   }
