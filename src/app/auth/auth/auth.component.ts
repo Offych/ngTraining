@@ -15,7 +15,6 @@ export class AuthComponent implements OnInit {
   isLoading = false;
   error: string = null;
   userAuthForm: FormGroup;
-  userName: string;
 
   onSwitchMode() {
     this.isLoggedInMode = !this.isLoggedInMode;
@@ -27,7 +26,7 @@ export class AuthComponent implements OnInit {
       userName: new FormControl('', Validators.required),
       email: new FormControl('', Validators.email),
       passwordGroup: new FormGroup({
-        password: new FormControl('', [Validators.required, Validators.min(6)]),
+        password: new FormControl('', [Validators.required, Validators.minLength(6)]),
         confirmPassword: new FormControl('', [Validators.required])
       }, PasswordMatchValidator.MatchPassword )
     })
@@ -48,7 +47,6 @@ export class AuthComponent implements OnInit {
 
     const email = this.userAuthForm.get('email').value;
     const password = this.userAuthForm.get('passwordGroup').get('password').value;
-    //const user = this.userAuthForm.get('userName').value;
 
 
     console.info(this.userAuthForm.value)

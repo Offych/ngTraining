@@ -3,7 +3,7 @@ import {AuthService} from '../auth/auth/auth.service';
 import {Subscription} from 'rxjs';
 import {Router} from '@angular/router';
 import {AuthComponent} from '../auth/auth/auth.component';
-import {tap} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 
 @Component({
   selector: 'header',
@@ -13,8 +13,6 @@ import {tap} from 'rxjs/operators';
 export class HeaderComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
   private userSub: Subscription;
-  currentUser: string
-
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -29,6 +27,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.userSub.unsubscribe();
   }
+  get email() {
+    return this.authService.user.getValue().email;
+  }
+  get name() {
+    return this.authService.user.getValue().userName;
+  }
+
 
   onLogout() {
     this.authService.logout();

@@ -23,6 +23,8 @@ export class UserFormComponent implements OnInit {
   userForm: FormGroup;
   fullNameForEmailInput: any;
   gmail: string = '@gmail.com'
+  firstName: string;
+  lastName: string;
 
   constructor(private router: Router, private _snackBar: MatSnackBar) { }
 
@@ -42,7 +44,9 @@ export class UserFormComponent implements OnInit {
     const lastName$: any = this.userForm.get('lastName').valueChanges;
     combineLatest([firstName$, lastName$]).
       pipe(map(value => value.toString().replace(/,/g, '')))
-      .subscribe( data =>  this.fullNameForEmailInput = data)
+      .pipe( data =>  this.fullNameForEmailInput = data).subscribe(
+        data => this.userForm.get('email').patchValue(data + this.gmail)
+    )
 
   }
 
