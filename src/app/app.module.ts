@@ -26,7 +26,7 @@ import {LoadingSpinnerComponent} from './shared/loading-spinner/loading-spinner/
     RxjsComponent,
     UsersShellComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
   ],
     imports: [
         BrowserModule,

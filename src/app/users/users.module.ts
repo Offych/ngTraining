@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardModule } from '../shared/card.module';
@@ -16,6 +16,10 @@ import {UsersComponent} from './users.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import {UsersRoutingModule} from './users-routing.module';
 import {RouterModule} from '@angular/router';
+import {UserDetailTabsComponent} from './components/user-detail-tab/user-detail-tabs.component';
+import { CompanyInfoComponent } from './components/company-info/company-info.component';
+import { PersonalInfoComponent } from './components/personal-info/personal-info.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +28,10 @@ import {RouterModule} from '@angular/router';
     UserEditShellComponent,
     UserDetailComponent,
     UserFormComponent,
+    UserDetailTabsComponent,
+    CompanyInfoComponent,
+    PersonalInfoComponent,
+    ContactsComponent,
   ],
   imports: [
     CommonModule,
@@ -38,7 +46,8 @@ import {RouterModule} from '@angular/router';
     MatCardModule,
     MatRadioModule,
     UsersRoutingModule,
-    RouterModule
+    RouterModule,
+
   ],
   exports: [
     UsersComponent

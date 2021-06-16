@@ -30,9 +30,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   get email() {
     return this.authService.user.getValue().email;
   }
-  get name() {
-    return this.authService.user.getValue().userName;
-  }
+
 
 
   onLogout() {

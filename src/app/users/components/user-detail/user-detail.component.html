@@ -1,9 +1,7 @@
 <div class='card'
      *ngIf='user'>
-  <div class='card-header'>
-    {{pageTitle + ': ' + user.firstName +  ' ' + user.lastName}}
-  </div>
-
+  <tabs></tabs>
+  <router-outlet></router-outlet>
   <div class='card-body'>
     <div class='row'>
       <div class='col-md-8'>
@@ -12,7 +10,7 @@
         </div>
         <div class='row'>
           <div class='col-md-4'>Full Name:</div>
-          <div class='col-md-8'>{{user.firstName}} {{user.lastName}}</div>
+          <div class='col-md-8'>{{user.firstName }} {{user.lastName}}</div>
         </div>
         <div class='row'>
           <div class='col-md-4'>Age: </div>
@@ -35,6 +33,7 @@
       </div>
   </div>
 
+
   <div class='card-footer'>
     <button class='btn btn-outline-secondary'
             (click)='onBack()'>Back </button>
@@ -42,4 +41,3 @@
             [routerLink]="['/users', user.id, 'edit']">Edit </button>
   </div>
 </div>
-

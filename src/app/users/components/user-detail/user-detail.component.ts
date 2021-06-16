@@ -9,8 +9,8 @@ import { UsersService } from '../../services/users.service';
   styleUrls: ['./user-detail.component.scss']
 })
 export class UserDetailComponent implements OnInit {
-  pageTitle: string = 'User Detail';
-
+  pageTitle: string = 'Name: ';
+  fullname: string;
   user: IUsers;
 
   constructor(private route: ActivatedRoute,
