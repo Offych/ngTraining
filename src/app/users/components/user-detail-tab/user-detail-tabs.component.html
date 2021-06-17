@@ -1,7 +1,7 @@
   <div *ngIf='user'>
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item">{{ pageTitle }} {{ user.firstName + user.lastName}}</li>
+        <li class="breadcrumb-item disabled">{{ pageTitle }} {{  user.firstName }} {{ user.lastName}}</li>
         <li class="breadcrumb-item" (click)="showCompanyInfo()">Company-info</li>
         <li class="breadcrumb-item" (click)="showPersonalInfo()">Personal Info</li>
         <li class="breadcrumb-item" (click)="showContacts()">Contacts</li>
