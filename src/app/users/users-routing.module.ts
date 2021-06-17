@@ -15,8 +15,8 @@ const routes: Routes = [
       { path: 'users/:id', component: UserDetailComponent,
           children: [
             { path: 'company-info', component: CompanyInfoComponent },
-            { path: 'personal-info', component: PersonalInfoComponent},
-            { path: 'contacts', component: ContactsComponent},
+            { path: 'personal-info', component: PersonalInfoComponent },
+            { path: 'contacts', component: ContactsComponent },
         ]
     },
       { path: 'users/:id/:edit', component: UserEditShellComponent, canDeactivate: [UserEditGuard]}
